@@ -5,23 +5,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+// Đã loại bỏ EdgeToEdge khỏi các imports không cần thiết
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        // Bỏ EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        // **********************************************
-        // THÊM CODE XỬ LÝ NÚT BẤM VÀO ĐÂY
-        // **********************************************
+        // ********** CODE BỔ SUNG LOGIC CHUYỂN MÀN HÌNH **********
 
         // 1. Tìm nút "Create Account"
         Button btnGoToCreateAccount = findViewById(R.id.button_go_to_create_account);
@@ -36,15 +32,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // **********************************************
-        // KẾT THÚC CODE BỔ SUNG
-        // **********************************************
+        // *************************************************************
 
-        // Code EdgeToEdge mặc định (Giữ nguyên)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        // Đã XÓA hoàn toàn phần ViewCompat.setOnApplyWindowInsetsListener
+        // (Phần này gây ra lỗi tìm kiếm ID 'main')
     }
 }
